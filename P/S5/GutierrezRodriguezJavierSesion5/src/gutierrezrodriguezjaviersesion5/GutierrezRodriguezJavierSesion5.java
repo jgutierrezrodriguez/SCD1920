@@ -53,7 +53,7 @@ public class GutierrezRodriguezJavierSesion5 {
         List <Future<?>> listaTareas = new ArrayList<>();
         InstalarCasa instalarCasa = new InstalarCasa(listaTareas, ejecucionTareasInstaladores);
         ScheduledFuture<?> tareaInstalarCasa = ejecuciosTareasPrincipales.scheduleAtFixedRate(instalarCasa, 
-                0, Constantes.INSTALACION, TimeUnit.SECONDS);
+                Constantes.INICIO, Constantes.INSTALACION, TimeUnit.SECONDS);
         listaTareas.add(tareaInstalarCasa);
         
         List<List<Casa>> lista_listacasas = new ArrayList<>();

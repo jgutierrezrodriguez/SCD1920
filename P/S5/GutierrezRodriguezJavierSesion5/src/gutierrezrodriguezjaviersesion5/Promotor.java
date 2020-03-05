@@ -42,14 +42,19 @@ public class Promotor implements Runnable {
     }
     
     private void procesarInstalaciones() throws InterruptedException, ExecutionException{
-        List<Casa> lista = new ArrayList<>();
-        Future<Casa> resultado;
-        
-        while((resultado = ejecucion.poll()) != null){
-            lista.add(resultado.get());
+        if(Thread.currentThread().isInterrupted()){
+            throw new InterruptedException("interrupcion solicitada");
         }
-        
-        lista_listacasas.add(lista);
+        else{
+            List<Casa> lista = new ArrayList<>();
+            Future<Casa> resultado;
+
+            while((resultado = ejecucion.poll()) != null){
+                lista.add(resultado.get());
+            }
+
+            lista_listacasas.add(lista);
+        }
     }
     
 }
