@@ -1,0 +1,64 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicio3;
+
+/**
+ *
+ * @author jgr97
+ */
+public class Event implements Comparable<Event> {
+	
+	/**
+	 * Number of the thread that generates the event
+	 */
+	private int thread;
+	/**
+	 * Priority of the thread
+	 */
+	private int priority;
+	
+	/**
+	 * Constructor of the thread. It initializes its attributes
+	 * @param thread Number of the thread that generates the event
+	 * @param priority Priority of the event
+	 */
+	public Event(int thread, int priority){
+		this.thread=thread;
+		this.priority=priority;
+	}
+	
+	/**
+	 * Method that returns the number of the thread that generates the
+	 * event
+	 * @return The number of the thread that generates the event
+	 */
+	public int getThread() {
+		return thread;
+	}
+	
+	/**
+	 * Method that returns the priority of the event
+	 * @return The priority of the event
+	 */
+	public int getPriority() {
+		return priority;
+	}
+	
+	/**
+	 * Method that compares two events and decide which has more priority
+	 */
+	@Override
+	public int compareTo(Event e) {
+		if (this.priority>e.getPriority()) {
+			return -1;
+		} else if (this.priority<e.getPriority()) {
+			return 1; 
+		} else {
+			return 0;
+		}
+	}
+}
+
